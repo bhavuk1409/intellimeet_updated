@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background gradient -->
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4776E6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#8E54E9;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#4A00E0;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Rounded square background -->
+    <rect x="56" y="56" width="400" height="400" rx="80" fill="url(#grad1)" />
+
+    <!-- Camera/Video icon -->
+    <path
+        d="M346 174.5V337.5C346 346 338.5 352 331 352H149C141.5 352 134 346 134 337.5V174.5C134 166 141.5 160 149 160H331C338.5 160 346 166 346 174.5Z"
+        fill="white" />
+
+    <!-- Camera lens -->
+    <circle cx="240" cy="240" r="56" fill="url(#grad2)" />
+    <circle cx="240" cy="240" r="40" fill="#131E3A" />
+    <circle cx="228" cy="228" r="10" fill="white" opacity="0.8" />
+
+    <!-- Video icon triangle/play button -->
+    <path d="M378 210L378 302C378 309.5 370.5 313.636 364 310L312 284V228L364 202C370.5 198.364 378 202.5 378 210Z"
+        fill="white" />
+
+    <!-- Connection waves -->
+    <path d="M286 150C319.137 150 346 176.863 346 210" stroke="white" stroke-width="10" stroke-linecap="round"
+        opacity="0.6" />
+    <path d="M286 130C330.183 130 366 165.817 366 210" stroke="white" stroke-width="10" stroke-linecap="round"
+        opacity="0.4" />
+    <path d="M286 110C341.228 110 386 154.772 386 210" stroke="white" stroke-width="10" stroke-linecap="round"
+        opacity="0.2" />
+</svg>

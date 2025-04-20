@@ -1,0 +1,864 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* iOS style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ======== stream css overrides ======== */
+.str-video__call-stats {
+  max-width: 500px;
+  position: relative;
+}
+
+.str-video__speaker-layout__wrapper {
+  max-height: 700px;
+}
+
+.str-video__participant-details {
+  color: white;
+}
+
+.str-video__menu-container {
+  color: white;
+}
+
+.str-video__notification {
+  color: white;
+}
+
+.str-video__participant-list {
+  background-color: #1c1c1e;
+  padding: 10px;
+  border-radius: 13px;
+  color: white;
+  height: 100%;
+}
+
+.str-video__call-controls__button {
+  height: 44px;
+  border-radius: 22px;
+  transition: all 0.2s ease;
+}
+
+.str-video__call-controls__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* iOS-style glassmorphism */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glassmorphism2 {
+  background: rgba(28, 28, 30, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* iOS-style card */
+.ios-card {
+  background: #1c1c1e;
+  border-radius: 13px;
+  padding: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ios-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* iOS-style button */
+.ios-button {
+  border-radius: 22px;
+  padding: 12px 22px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ios-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.ios-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ==== clerk class override ===== */
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-logoBox {
+  margin: 0 auto 14px !important;
+  height: 54px !important;
+  width: 54px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: white !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+.cl-logoImage {
+  width: 75% !important;
+  height: 75% !important;
+  object-fit: cover !important;
+  padding: 0 !important;
+  object-position: center !important;
+}
+
+.cl-dividerLine {
+  background: #2c2c2e;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #1A1A1A !important;
+  border: 1px solid #333 !important;
+}
+
+.cl-socialButtonsIconButton:hover {
+  background-color: #111 !important;
+}
+
+.cl-socialButtonsIconButton[data-social-provider="apple"] svg path {
+  fill: white !important;
+}
+
+.cl-socialButtonsIconButton[data-social-provider="apple"] {
+  background-color: #1A1A1A !important;
+}
+
+.cl-socialButtonsProviderIcon {
+  margin: auto !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.cl-socialButtonsBlock {
+  margin-top: 16px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  padding-left: 20px !important;
+}
+
+.cl-internal-wkkub3 {
+  color: white;
+}
+.cl-userButtonPopoverActionButton {
+  color: white;
+}
+
+/* =============================== */
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+  
+  /* iOS-specific utilities */
+  .ios-shadow {
+    @apply shadow-ios;
+  }
+  
+  .ios-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .ios-focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-1 focus:ring-opacity-50;
+  }
+}
+
+/* animation */
+
+.show-block {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  animation: show 0.7s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    width: 0%;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    width: 100%;
+  }
+}
+
+/* iOS style transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+/* iOS style fill effects */
+.ios-fill {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ios-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  z-index: -1;
+}
+
+.ios-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  z-index: -1;
+  filter: blur(4px);
+}
+
+.ios-gradient-text {
+  background: linear-gradient(to right, #1E88E5, #6236FF, #D72AE3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* iOS style icon backgrounds */
+.ios-icon-bg {
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 70%);
+}
+
+/* Enhanced iOS-style auth components */
+.cl-card {
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 16px 20px !important;
+  max-height: 85vh !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+}
+
+.cl-socialButtons-iconButton {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.cl-socialButtons-iconButton::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0)) !important;
+  z-index: 0 !important;
+}
+
+.cl-socialButtons-iconButton:hover::before {
+  background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05)) !important;
+}
+
+.cl-formButtonPrimary {
+  margin-top: 12px !important;
+  background-color: #007AFF !important;
+  border-radius: 6px !important;
+  height: 38px !important;
+  font-weight: 500 !important;
+  width: 100% !important;
+  margin-bottom: 12px !important;
+}
+
+.cl-formFieldInput {
+  background-color: #000 !important;
+  border: 1px solid #333 !important;
+  border-radius: 6px !important;
+  color: white !important;
+  height: 38px !important;
+  padding-top: 9px !important;
+  padding-bottom: 9px !important;
+}
+
+.cl-formFieldInput::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.cl-formFieldLabel {
+  color: #AAAAAA !important;
+  font-size: 13px !important;
+  margin-bottom: 2px !important;
+}
+
+/* Social buttons styling */
+.cl-socialButtonsBlock {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 10px !important;
+  gap: 14px !important;
+  padding-left: 20px !important;
+}
+
+.cl-socialButtonsIconButton {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #1A1A1A !important;
+  border: 1px solid #333 !important;
+}
+
+.cl-socialButtonsIconButton:hover {
+  background-color: #111 !important;
+}
+
+.cl-card {
+  background-color: #000 !important;
+  box-shadow: none !important;
+  border: none !important;
+  max-width: 400px !important;
+  padding: 16px 20px !important;
+  max-height: 85vh !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+}
+
+.cl-headerTitle {
+  font-size: 23px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  color: white !important;
+  margin-bottom: 3px !important;
+}
+
+.cl-headerSubtitle {
+  font-size: 15px !important;
+  text-align: center !important;
+  color: #AAAAAA !important;
+  margin-bottom: 14px !important;
+}
+
+.cl-dividerText {
+  color: #777 !important;
+  padding: 0 6px !important;
+  font-size: 13px !important;
+}
+
+.cl-dividerLine {
+  background-color: #333 !important;
+}
+
+.cl-footerActionText {
+  color: #AAAAAA !important;
+  margin-top: 8px !important;
+  font-size: 13px !important;
+}
+
+.cl-footerActionLink {
+  color: #007AFF !important;
+  font-weight: 500 !important;
+}
+
+.cl-formFieldAction {
+  color: #007AFF !important;
+}
+
+/* Password visibility toggle */
+.cl-formFieldInputShowPasswordButton {
+  color: #777 !important;
+}
+
+.cl-formFieldInputShowPasswordIcon {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Checkbox styling */
+.cl-formFieldCheckboxLabel {
+  color: #AAAAAA !important;
+  font-size: 14px !important;
+}
+
+/* Animated background elements for auth pages */
+@keyframes pulse-slow {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-20px) translateX(20px);
+  }
+  50% {
+    transform: translateY(0px) translateX(40px);
+  }
+  75% {
+    transform: translateY(20px) translateX(20px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+.floating-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.floating-dots::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at center, rgba(45, 130, 254, 0.4) 2px, transparent 2px);
+  background-size: 25px 25px;
+  animation: float 20s infinite linear;
+}
+
+.glow-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(45, 130, 254, 0.25) 0%, transparent 70%);
+  opacity: 0.85;
+  filter: blur(40px);
+  animation: pulse-slow 10s infinite alternate ease-in-out;
+}
+
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, rgba(45, 130, 254, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(45, 130, 254, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.5;
+}
+
+/* Additional subtle particle animation */
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(-200px) translateX(-120px);
+  }
+  50% {
+    transform: translateY(200px) translateX(120px);
+  }
+}
+
+.grid-lines::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 10%;
+  background: radial-gradient(circle at center, rgba(151, 71, 255, 0.4), transparent 60%);
+  border-radius: 50%;
+  filter: blur(25px);
+  animation: particle-float 25s infinite alternate ease-in-out;
+}
+
+.grid-lines::before {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  bottom: 10%;
+  right: 20%;
+  background: radial-gradient(circle at center, rgba(53, 182, 255, 0.4), transparent 60%);
+  border-radius: 50%;
+  filter: blur(25px);
+  animation: particle-float 20s infinite alternate-reverse ease-in-out;
+}
+
+/* Form field spacing and size */
+.cl-formField {
+  margin-bottom: 10px !important;
+}
+
+/* Social buttons spacing and size */
+.cl-socialButtonsBlock {
+  margin-top: 10px !important;
+  gap: 14px !important;
+}
+
+.cl-socialButtonsIconButton {
+  width: 38px !important;
+  height: 38px !important;
+}
+
+/* Divider and footer spacing */
+.cl-dividerText {
+  padding: 0 6px !important;
+}
+
+.cl-footerActionText {
+  margin-top: 8px !important;
+}
+
+/* Phone input specific styling to make it smaller */
+.cl-phoneInputBox {
+  height: 38px !important;
+}
+
+.cl-phoneInputCountry {
+  height: 38px !important;
+}
+
+/* Custom scrollbar for the card */
+.cl-card::-webkit-scrollbar {
+  width: 4px !important;
+}
+
+.cl-card::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.cl-card::-webkit-scrollbar-thumb {
+  background: rgba(45, 130, 254, 0.4) !important;
+  border-radius: 4px !important;
+}
+.cl-internal-11mzgzk {
+  display: flex;
+  gap: 66px;
+}
+
+.cl-logoBox{
+  height: 50px;
+  width: 50px;
+}
+.cl-internal-15b1k3o {
+  gap: 2px;
+}
+.cl-internal-106hgwy {
+  text-align: center;
+  justify-content: center;
+  display: inline;
+}
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.cl-internal-1xxm1sk{
+  display: none;
+}
+.cl-internal-15mc8ss{
+  display: none;
+}
+
+/* iOS inspired animations */
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.97);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes ios-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes ios-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes bg-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.floating-element {
+  animation: floating 6s ease-in-out infinite;
+}
+
+.ios-shadow {
+  box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.05),
+    0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.ios-gradient-bg {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background-size: 200% 200%;
+  animation: bg-pan 15s ease infinite;
+}
+
+.ios-transition {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ios-appear {
+  animation: ios-appear 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.ios-card {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+.ios-blur-bg {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.ios-dark-blur-bg {
+  backdrop-filter: blur(20px);
+  background: rgba(20, 20, 40, 0.8);
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.floating-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: floating 150s linear infinite;
+  z-index: -1;
+}
+
+.animate-pulse-slow {
+  animation: pulse-glow 7s ease-in-out infinite;
+}
+
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: 100px 100px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  z-index: -1;
+}
+
+.glow-effect {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    rgba(66, 133, 244, 0.3) 0%,
+    rgba(139, 78, 255, 0.15) 50%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-glow 7s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* iOS rounded corners */
+.rounded-ios {
+  border-radius: 12px;
+}
+
+.rounded-ios-lg {
+  border-radius: 20px;
+}
+
+.rounded-ios-xl {
+  border-radius: 28px;
+}
+
+.rounded-ios-full {
+  border-radius: 9999px;
+}
+
+/* iOS Gradient Text */
+.ios-gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Flex center utility for iOS components */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cl-internal-y44tp9{
+  display: none;
+}
+.cl-internal-sgq26j{
+  display: none;
+}
+.cl-internal-1asm60f[data-variant="outline"]{
+  color: white;
+}
